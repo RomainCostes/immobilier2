@@ -1,0 +1,73 @@
+<nav class="navbar shadow-1 viride dark-4">
+    <div *ngIf="this.authService.estConnecte()">
+      <span>{{this.authService.getUser() | uppercase}}</span>
+    </div>
+    <div class="navbar-menu ml-auto">
+      <div *ngIf="this.authService.estConnecte()">
+        <button style="color: black;" (click)="seDeconnecter()">Se déconnecter</button>
+      </div>
+    </div>
+  </nav>
+
+<div *ngIf="this.authService.estConnecte(); else elseTemplate">
+  <h1>{{title}}</h1>
+
+  <div class="container-card d-flex fx-wrap">
+    <div class="card shadow-1 rounded-3" *ngFor="let propriete of proprietes; let i=index">
+      <div *ngIf="propriete.proprietaire == this.authService.getUserId()">
+        <app-proprietes
+        [proprieteId]="propriete.id"
+        [proprieteNom]="propriete.nom"
+        [proprieteAdresse]="propriete.adresse"
+        [proprietePrix]="propriete.prix"
+        [proprieteProprio]="propriete.proprietaire">
+        </app-proprietes>
+
+       <app-users
+        [proprietePropio]="propriete.proprietaire"
+        [proprieteId]="propriete.id">
+        </app-users> 
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<ng-template #elseTemplate>
+  <app-login></app-login>
+</ng-template>
+
+
+<h1> Propriétés disponibles</h1>
+
+<div class="container-card d-flex fx-wrap">
+  <div class="card shadow-1 rounded-3" *ngFor="let propriete of proprietes; let i=index">
+    <div *ngIf="propriete.proprietaire == '0'">
+    <app-proprietes
+      [proprieteId]="propriete.id"
+      [proprieteNom]="propriete.nom"
+      [proprieteAdresse]="propriete.adresse"
+      [proprietePrix]="propriete.prix"
+      [proprieteProprio]="propriete.proprietaire">
+    </app-proprietes>
+
+    <app-users
+    [proprietePropio]="propriete.proprietaire"
+    [proprieteId]="propriete.id">
+    </app-users>
+
+  </div>
+  
+</div>
+</div>
+
+<footer class="large-footer viride dark-4">
+    <div class="container">
+      <div class="grix xs3">
+        <div class="footer-content txt-center">
+          <h6>BUDGET : {{ this.userService.getBudget(this.authService.getUserId()) }}</h6>
+        </div>
+      </div>
+    </div>
+    <div class="footer fx-center">Copyright © 2020</div>
+  </footer>

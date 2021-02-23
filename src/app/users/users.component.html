@@ -1,0 +1,12 @@
+<div *ngIf="this.proprietePropio == 0; else elseTemplate">
+<button (click)="onBuyHouse(this.proprieteId)" class="btn shadow-1 rounded-1 outline opening txt-blue mb-2">
+    <span class="outline-text">Acheter</span>        
+</button>
+</div>
+
+<ng-template #elseTemplate>
+    <button (click)="onSellHouse(this.proprieteId, this.proprietePropio)" class="btn shadow-1 rounded-1 outline opening txt-blue mb-2">
+            <span class="outline-text">Vendre</span>
+    </button>
+
+</ng-template>

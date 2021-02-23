@@ -1,0 +1,27 @@
+<h1 style="text-align:center">
+    CONNECTE TOI CHIEN !
+  </h1>
+  <div class="login">
+    <h2 class="login-header">S'identifier</h2>
+    <form [formGroup]="loginForm" class="login-container" (ngSubmit)="onSubmit()">
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.username.errors }">
+        <input type="username" placeholder="username" formControlName="username" required autofocus>
+      </p>
+  
+      <div *ngIf="isSubmitted && formControls.username.errors" class="help-block">
+        <div *ngIf="formControls.username.errors.required"><font color="red">L'username est requis</font></div>
+      </div>
+  
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="password" placeholder="Password" formControlName="password" required>
+      </p>
+  
+      <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+        <div *ngIf="formControls.password.errors.required"><font color="red">Mot de passe requis</font></div>
+      </div>
+  
+      <p>
+        <input type="submit" value="Log in">
+      </p>
+    </form>
+  </div>
