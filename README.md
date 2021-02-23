@@ -11,5 +11,5 @@ Run ng serve -o
 
 
 ## Troubleshooting 
-Si jamais le projet ne se lance pas directement, il est parfois nécéssaire de modifier* n'importe quel fichier afin d'assurer un bon fonctionnement.
-*n'importe quelle modification marche, écrire un simple "a" dans le fichier suffira.
+Si jamais le projet ne se lance pas directement, il est parfois nécéssaire de modifier* un fichier source afin d'assurer le bon fonctionnement du projet.
+*n'importe quelle modification marche, écrire quelques charactères dans le fichier src/app/app.component.ts par exemple.
