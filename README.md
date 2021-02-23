@@ -1,3 +1,8 @@
+Bonjour Bonjour,
+
+Désolé pour le retard, J'essayais de mettre le projet dans un zip pour le rendre plus facilement, mais c'était sans savoir que Git n'accepte pas les fichiers trop volumineux. (j'ai des screens preuves !)
+
+
 # Immobilier
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.7.
